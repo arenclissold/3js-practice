@@ -2,6 +2,11 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+import arenPath from './aren.jpeg'
+import earthPath from './earth_map.jpeg'
+import normalPath from './normal_map.webp'
+import spacePath from './space.jpeg'
+
 const scene = new THREE.Scene()
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -37,7 +42,7 @@ function addStar() {
   const material = new THREE.MeshStandardMaterial({color: '#ffffff'})
   const star = new THREE.Mesh(geometry, material)
 
-  
+
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100))
 
   star.position.set(x, y, z)
@@ -46,10 +51,10 @@ function addStar() {
 
 Array(200).fill().forEach(addStar)
 
-const spaceTexture = new THREE.TextureLoader().load('space.jpeg')
+const spaceTexture = new THREE.TextureLoader().load(spacePath)
 scene.background = spaceTexture
 
-const arenTexture = new THREE.TextureLoader().load('aren.jpeg')
+const arenTexture = new THREE.TextureLoader().load(arenPath)
 
 const aren = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
@@ -58,8 +63,8 @@ const aren = new THREE.Mesh(
 
 scene.add(aren)
 
-const earthTexture = new THREE.TextureLoader().load('earth_map.jpeg')
-const normalTexture = new THREE.TextureLoader().load('normal_map.webp')
+const earthTexture = new THREE.TextureLoader().load(earthPath)
+const normalTexture = new THREE.TextureLoader().load(normalPath)
 
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
