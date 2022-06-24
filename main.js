@@ -6,6 +6,7 @@ import arenPath from './aren.jpeg'
 import earthPath from './earth_map.jpeg'
 import normalPath from './normal_map.webp'
 import spacePath from './space.jpeg'
+import meta from './meta.png'
 
 const scene = new THREE.Scene()
 
